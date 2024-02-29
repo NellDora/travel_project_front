@@ -1,8 +1,10 @@
 import { Suspense } from "react";
 import MainPage from "../pages/MainPage";
 import infoRouter from "./infoRouter";
+import InfoPage from "../pages/InfoPage";
 
 const { createBrowserRouter } = require("react-router-dom");
+
 
 const root = createBrowserRouter([
     {
@@ -11,7 +13,7 @@ const root = createBrowserRouter([
     },
     {
         path:'informations',
-        element:<Suspense></Suspense>,
+        element:<Suspense><InfoPage/></Suspense>,
         children:infoRouter()
     },
     {
