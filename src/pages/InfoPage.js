@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import BasicMenu from "../menus/BasicMenu";
-import BasicContent from "../contents/BasicContent";
+import BasicMenu from "../components/menus/BasicMenu";
+import BasicContent from "../components/contents/BasicContent";
 
 function InfoPage(){
     return(

@@ -1,6 +1,6 @@
 import { Suspense } from "react"
 import InfoListPage from "../pages/InfoListPage";
-import InfoDetailComponent from "../informations/InfoDetailComponent";
+import InfoDetailComponent from "../components/informations/InfoDetailComponent";
 
 const infoRouter = () =>{
 

@@ -1,4 +1,4 @@
-import InfoListComponent from "../informations/InfoListComponent";
+import InfoListComponent from "../components/informations/InfoListComponent";
 import InfoSearchComponent from "../search/InfoSearchComponent";
 
 function InfoListPage(){

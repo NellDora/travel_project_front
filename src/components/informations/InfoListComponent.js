@@ -9,7 +9,7 @@ const InfoListComponent = () => {
         <div>
             <div className="flex-wrap justify-items-center flex place-items-center">
 
-                <div className="box-border border-t-2 m-10 w-1/4 shadow-lg"
+                <div className="box-border border-t-2 m-10 w-1/4 shadow-lg shadow-slate-400 border-gray-300 border-2"
                     onClick={() => moveToInfoRead()}>
                     
                     <div className="text-center">
@@ -21,7 +21,7 @@ const InfoListComponent = () => {
 
                 </div>
 
-                <div className="box-border border-t-2 m-10 w-1/4 shadow-lg"
+                <div className="box-border border-t-2 m-10 w-1/4 shadow-lg shadow-slate-400 border-gray-300 border-2"
                     onClick={() => moveToInfoRead()}>
                     
                     <div className="text-center">
@@ -32,7 +32,7 @@ const InfoListComponent = () => {
                     </div>
 
                 </div>
-                <div className="box-border border-t-2 m-10 w-1/4 shadow-lg"
+                <div className="box-border border-t-2 m-10 w-1/4 shadow-lg shadow-slate-400 border-gray-300 border-2"
                     onClick={() => moveToInfoRead()}>
                     
                     <div className="text-center">
@@ -43,7 +43,7 @@ const InfoListComponent = () => {
                     </div>
 
                 </div>
-                <div className="box-border border-t-2 m-10 w-1/4 shadow-lg"
+                <div className="box-border border-t-2 m-10 w-1/4 shadow-lg shadow-slate-400 border-gray-300 border-2"
                     onClick={() => moveToInfoRead()}>
                     
                     <div className="text-center">
@@ -54,7 +54,7 @@ const InfoListComponent = () => {
                     </div>
 
                 </div>
-                <div className="box-border border-t-2 m-10 w-1/4 shadow-lg"
+                <div className="box-border border-t-2 m-10 w-1/4 shadow-lg shadow-slate-400 border-gray-300 border-2"
                     onClick={() => moveToInfoRead()}>
                     
                     <div className="text-center">
