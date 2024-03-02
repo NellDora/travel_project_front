@@ -1,7 +1,7 @@
 import {lazy, Suspense} from "react"
-import BoardListPage from "../pages/BoardListPage";
-import BoardReadPage from "../pages/BoardReadPage";
-import BoardWritePage from "../pages/BoardAddPage";
+import BoardListPage from "../pages/community/BoardListPage";
+import BoardReadPage from "../pages/community/BoardReadPage";
+import BoardWritePage from "../pages/community/BoardAddPage";
 
 
 const communityRouter = () => {
@@ -12,7 +12,7 @@ const communityRouter = () => {
             element:<Suspense><BoardListPage/></Suspense>
         },
         {
-            path:"read",
+            path:"read/:bno",
             element:<Suspense><BoardReadPage/></Suspense>
         },
         {

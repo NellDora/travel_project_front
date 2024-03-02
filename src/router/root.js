@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import MainPage from "../pages/MainPage";
 import infoRouter from "./infoRouter";
-import InfoPage from "../pages/InfoPage";
+import InfoPage from "../pages/informations/InfoPage";
 import communityRouter from "./communityRouter";
-import ComminityPage from "../pages/CommunityPage";
+import ComminityPage from "../pages/community/CommunityPage";
 
 const { createBrowserRouter } = require("react-router-dom");
 

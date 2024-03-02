@@ -1,22 +1,24 @@
 import axios from "axios"
 
-export const API_SERVER_HOST=''
+export const API_SERVER_HOST='http://localhost:8080'
 
 const prefix = `${API_SERVER_HOST}/boards`
 
 export const getBoard = async(bno) =>{
+    console.log(bno)
     const res = await axios.get(`${prefix}/${bno}`)
+    console.log("getBoard 호출")
     return res.data
 }
 
 export const getBoardList = async(pageParam) =>{
     const {page,size} = pageParam
-    const res = await axios.get(`${prefix}/list`, {params:{page,size}})
+    const res = await axios.get(`${prefix}/`, {params:{page,size}})
     return res.data
 }
 
 export const postBoard = async(boardObj) =>{
-    const res= await axios.post(`${prefix}`, boardObj)
+    const res= await axios.post(`${prefix}/`, boardObj)
     return res.data
 }
 

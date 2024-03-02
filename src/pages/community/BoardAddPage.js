@@ -1,4 +1,4 @@
-import BoardAddComponent from "../components/communitys/BoardAddComponent";
+import BoardAddComponent from "../../components/communitys/BoardAddComponent";
 
 function BoardWritePage()  {
     return(

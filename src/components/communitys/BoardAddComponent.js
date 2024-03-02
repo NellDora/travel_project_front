@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { postBoard } from "../../api/boardApi";
+import useCustomMove from "../hook/useCustomMove";
+import BasicResultModal from "../common/BasicResultModal";
 
 const initState = {
     title:'',
-    content:'',
-    writer:'',
-    regDate:''
+    content:''
 }
 
 
@@ -12,13 +13,26 @@ const BoardAddComponent = () => {
 
     const[board, setBoard] = useState({...initState})
 
+    const [result, setResult] = useState(null);
+
+    const {moveToBoardList} = useCustomMove()
+
     const handleChangeBoard = (e) =>{
         board[e.target.name] = e.target.value
         setBoard({...board})
     }
 
     const handleClickAdd = () =>{
-        
+        console.log(board)
+        postBoard(board).then(result=>{
+            setResult(result)
+            setBoard({...board})
+        })
+    }
+
+    const closeModal = () =>{
+        setResult(null)
+        moveToBoardList()
     }
 
     return(
@@ -58,6 +72,9 @@ const BoardAddComponent = () => {
             <div className="w-1/6">
 
             </div>
+
+            {result ? <BasicResultModal category={'게시글'} title={board.title} callbackFn={closeModal}/>:<></>}
+
         </div>
     </div>
     );
