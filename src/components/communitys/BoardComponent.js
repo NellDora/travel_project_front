@@ -27,8 +27,8 @@ function BoardComponent(props){
                     <div className="w-1/6">
                         <span className="ml-6">내용</span>
                     </div>
-                    <div className="w-5/6">
-                        <span className="ml-6">{props.content}</span>
+                    <div className="w-4/6 whitespace-nowrap text-ellipsis overflow-hidden">
+                        <span className="ml-6 ">{props.content}</span>
                     </div>
                 </div>
                 

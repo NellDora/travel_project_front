@@ -3,6 +3,7 @@ import BoardSearchComponent from "../../search/BoardSearchComponent";
 import BoardComponent from "./BoardComponent";
 import { getBoardList } from "../../api/boardApi";
 import useCustomMove from "../hook/useCustomMove";
+import PageComponent from "../common/PageComponent";
 
 const initState ={
     dtoList:[],
@@ -42,10 +43,12 @@ const BoardListComponent = () => {
                         <div className="w-1/6 ">
                         </div>
                         <div className="w-4/6 shadow-lg ">
-                            <BoardComponent title={board.title} content={board.content} bno={board.bno}/>
+                            <BoardComponent title={board.title} content={board.content} bno={board.bno} category={board.category} writer = {board.writer}/>
                         </div>
                     </div>
                 )}
+
+                <PageComponent serverData={serverData} movePage={moveToBoardList}/>
             </div>
         </div>
     );

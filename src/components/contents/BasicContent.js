@@ -3,7 +3,7 @@
 const BasicContent =({children}) =>{
     return(
         <div className="flex">
-            <div className="flex whitespace-normal h-svh w-1/12 bg-slate-300">
+            <div className="flex whitespace-normal h-svh w-1/12 ">
                 <span className=" text-wrap">ghgh</span>
             </div>
 
@@ -12,7 +12,7 @@ const BasicContent =({children}) =>{
                     {children}
                 </main>
             </div>
-            <div className="flex h-svh w-1/12 bg-slate-300">
+            <div className="flex h-svh w-1/12 ">
                 ghghgh
             </div>
         </div>

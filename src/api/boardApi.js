@@ -31,3 +31,12 @@ export const putBoard = async(board) => {
     const res = await axios.put(`${prefix}/${board.bno}`, board)
     return res.data
 }
+
+export const getBoardReply = async(bno) =>{
+    const res = await axios.get(`${prefix}/${bno}/replys`)
+    return res.data
+}
+
+export const postBoardReply = async(boardReplyObj) =>{
+    const res = await axios.post(`${prefix}/${boardReplyObj.bno}/replys`, boardReplyObj)
+}
