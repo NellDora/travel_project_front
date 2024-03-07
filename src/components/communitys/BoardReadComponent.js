@@ -21,6 +21,8 @@ function BoardReadComponent({bno}){
         })
     },[bno]);
 
+    const datetime = board.regDate.split(" ")
+
     return(
         <div className="">
             {/* 가나다라마바사*/}
@@ -33,7 +35,8 @@ function BoardReadComponent({bno}){
                         <span>{board.writer}</span>
                     </div>
                     <div className="m-4 text-lg">
-                        <span>{board.regDate.substring(0,10)} - {board.regDate.substring(14,22)}</span>
+                        <p>{board.regDate}</p>
+                        <span>{datetime[0]} - {datetime[1]}</span>
                     </div>
                     <div className="m-4 text-3xl font-extrabold">
                         {board.title}

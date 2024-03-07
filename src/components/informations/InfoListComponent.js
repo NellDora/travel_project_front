@@ -35,16 +35,17 @@ const InfoListComponent = () => {
         <div>
             <div>
 
-                <div className="flex-wrap justify-items-center flex place-items-center"
-                    onClick={() => moveToInfoRead()}>
+                <div className="flex-wrap justify-items-center flex place-items-cente">
 
                     {serverData.dtoList.map(info =>
-                        <div className="box-border border-t-2 m-10 w-1/4 shadow-lg shadow-slate-400 border-gray-300 border-2">
+                        <div className="box-border border-t-2 m-10 w-1/4 shadow-lg shadow-slate-400 border-gray-300 border-2"
+                        onClick={() => moveToInfoRead()}>
                                 <div className="text-center">
                                 <span className="font-extrabold size-5">지역명</span>
                             </div>
                             <div className="flex flex-wrap justify-center">
-                                <InfoComponent title={info.title}  content={info.content} register={"2024-02-25"} stump={"255"}/>
+                                <InfoComponent title={info.title}  content={info.content} register={"2024-02-25"} stump={"255"}
+                                image={info.uploadFileNames[0]}/>
                             </div>
                         </div>
                         )}
