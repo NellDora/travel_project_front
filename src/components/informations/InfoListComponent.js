@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useCustomMove from "../hook/useCustomMove"
 import InfoComponent from "./InfoComponent";
 import { getInfoList } from "../../api/infoApi";
+import PageComponent from "../common/PageComponent";
 
 const initState ={
     dtoList:[],
@@ -35,21 +36,44 @@ const InfoListComponent = () => {
         <div>
             <div>
 
-                <div className="flex-wrap justify-items-center flex place-items-cente">
+                <div className=" justify-items-center place-items-cente flex">
+                    <div className=" w-1/12">
 
-                    {serverData.dtoList.map(info =>
-                        <div className="box-border border-t-2 m-10 w-1/4 shadow-lg shadow-slate-400 border-gray-300 border-2"
-                        onClick={() => moveToInfoRead()}>
-                                <div className="text-center">
-                                <span className="font-extrabold size-5">지역명</span>
+                    </div>
+                    <div className="w-3/12 bg-slate-400"> 
+                            <div className="m-10 flex">
+                                <div className="w-1/4">
+                                    <span>search</span>
+                                </div>
+                                <input className="3/4" type="text"></input>
                             </div>
-                            <div className="flex flex-wrap justify-center">
-                                <InfoComponent title={info.title}  content={info.content} register={"2024-02-25"} stump={"255"}
-                                image={info.uploadFileNames[0]}/>
+                            <div className="m-10 flex">
+                                <div className="w-1/2">
+                                    <span>theme</span>
+                                </div>
+                                <select className=" w-1/2 rounded-2xl">
+                                    <option>ALL</option>
+                                    <option>view</option>
+                                    <option>food</option>
+                                    <option>history</option>
+                                </select>
                             </div>
-                        </div>
-                        )}
-
+                    </div>
+                    <div className="w-6/12">
+                        {serverData.dtoList.map(info =>
+                            <div className="box-border border-t-2 m-10 w-11/12 shadow-lg shadow-slate-400 border-gray-300 border-2"
+                            onClick={() => moveToInfoRead()}>
+                                    <div className="text-center">
+                                    <span className="font-extrabold size-5">지역명</span>
+                                </div>
+                                <div className="flex flex-wrap justify-center">
+                                    <InfoComponent title={info.title}  content={info.content} register={"2024-02-25"} stump={"255"}
+                                    image={info.uploadFileNames[0]}/>
+                                </div>
+                            </div>
+                            )}
+                            <PageComponent serverData={serverData} />
+                    </div>
                 </div>
 
             </div>
