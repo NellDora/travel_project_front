@@ -1,5 +1,6 @@
 import { Suspense } from "react"
 import AdminPage from "../pages/admin/AdminPage"
+import AdminAddInfoPage from "../pages/admin/AdminAddInfoPage"
 
 
 const adminRouter = () => {
@@ -11,9 +12,9 @@ const adminRouter = () => {
         },
         {
             path:"taaa",
-            element:<Suspense></Suspense>
+            element:<Suspense><AdminAddInfoPage/></Suspense>
         }
     ]
 }
 
-export default adminRouter
+export default adminRouter;

@@ -58,6 +58,17 @@ const InfoListComponent = () => {
                                     <option>history</option>
                                 </select>
                             </div>
+                            <div className="m-10 flex">
+                                <div className="w-1/2">
+                                    <span>stand</span>
+                                </div>
+                                <select className=" w-1/2 rounded-2xl">
+                                    <option>ALL</option>
+                                    <option>recently</option>
+                                    <option>favorite</option>
+                                    <option>lastly</option>
+                                </select>
+                            </div>
                     </div>
                     <div className="w-6/12">
                         {serverData.dtoList.map(info =>

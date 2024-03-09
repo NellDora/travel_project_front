@@ -11,3 +11,9 @@ export const getInfoList = async(pageParam) =>{
     console.log("getInfoList 호출")
     return res.data
 }
+
+export const postInfo = async(infoObj) =>{
+    const res = await axios.post(`${prefix}/` ,infoObj )
+    console.log("postInfo")
+    return res.data
+}
