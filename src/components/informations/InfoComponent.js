@@ -1,7 +1,7 @@
-import { API_SERVER_HOST } from "../../api/infoApi"
+import { API_SERVER_HOST } from "../../api/boardApi"
 
 
-const host = API_SERVER_HOST
+const API_HOST = API_SERVER_HOST
 
 
 function InfoComponent(props){
@@ -13,7 +13,7 @@ function InfoComponent(props){
                     <div className="flex">
                         <div className="bg-red-950 w-4/12 h-auto  flex mt-3 mb-3 justify-center">
                             <div>
-                                <img className=" object-contain" src={`${host}/vacationlands/view/s_${props.image}`}/>
+                                <img className=" object-contain" src={`${API_HOST}/vacationlands/view/s_${props.image}`}/>
                             </div>
                             
                         </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import useCustomMove from "../hook/useCustomMove";
 import { postInfo } from "../../api/infoApi";
 import BasicResultModal from "../common/BasicResultModal";
@@ -15,6 +15,8 @@ const InfoAddComponent = () =>{
 
     const[info, setInfo] = useState({...initState})
 
+    const uploadRef = useRef()
+
     const [result, setResult] = useState(null);
 
     const {moveToInfoList} = useCustomMove()
@@ -26,10 +28,22 @@ const InfoAddComponent = () =>{
 
     const handleClickAdd = () =>{
         console.log(info)
-        postInfo(info).then(result=>{
-            setResult(result)
-            setInfo({...info})
-        })
+
+        const formData = new FormData()
+
+        const files = uploadRef.current.files
+
+        console.log(files)
+
+        for(let i =0; i< files.length; i++){
+            formData.append("files", files[i])
+        }
+        formData.append("title", info.title)
+        formData.append("content", info.content)
+        formData.append("type", info.type)
+
+        postInfo(formData)
+
     }
 
     const closeModal = () =>{
@@ -66,6 +80,20 @@ const InfoAddComponent = () =>{
                     <option>food</option>
                     <option>history</option>
                 </select>
+
+                <div className="flex justify-center">
+                    <div className=" relative mb-4 flex p-4 flex-wrap items-stretch">
+                        <div className="w-1/5 p-6 text-right font-bold">
+                            Files
+                        </div>
+                        <input ref={uploadRef}
+                                className="w-4/5 p-6 rounded-r border border-solid border-neutral-300 shadow-md"
+                                type={'file'} multiple={true}>
+
+                        </input>
+                    </div>
+
+                </div>
 
                     <div className="flex">
                         <div className=" w-2/3">
