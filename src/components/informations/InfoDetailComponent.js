@@ -1,5 +1,30 @@
+import { useEffect, useState } from "react";
+import { getInfo } from "../../api/infoApi";
 
-const InfoDetailComponent = () => {
+
+const initState ={
+    vno:0,
+    title:"",
+    content:"",
+    category:"",
+    writer:"",
+    regDate:"",
+    location:"",
+    type:""
+}
+
+const InfoDetailComponent = ({vno}) => {
+
+    const [info, setInfo] = useState(initState)
+
+
+
+    useEffect(()=>{
+        getInfo(vno).then(data=>{
+            setInfo(data)
+        })
+    },[vno]);
+
     return(
         <div>
             <div className="flex flex-wrap justify-center h-auto">
@@ -20,10 +45,10 @@ const InfoDetailComponent = () => {
                 {/*글 제목 */}
                 <div className="bg-orange-500 w-1/2 flex flex-wrap">
                     <div className="w-1/6 font-extrabold">
-                        제목
+                        <span>title</span>
                     </div>
                     <div className="w-5/6">
-                        호놀롤롤로
+                        {info.title}
                     </div>
                 </div>
             </div>
@@ -32,13 +57,13 @@ const InfoDetailComponent = () => {
                 <div className="w-1/4">
                 </div>
 
-                {/*글 제목 */}
+                {/*글 내용 */}
                 <div className="bg-orange-500 w-1/2 flex flex-wrap">
                     <div className="w-1/6 font-extrabold">
-                        제목
+                        내용
                     </div>
                     <div className="w-5/6">
-                        호놀롤롤로
+                        {info.content}
                     </div>
                 </div>
             </div>
@@ -47,28 +72,28 @@ const InfoDetailComponent = () => {
                 <div className="w-1/4">
                 </div>
 
-                {/*글 제목 */}
-                <div className="bg-orange-500 w-1/2 flex flex-wrap">
-                    <div className="w-1/6 font-extrabold">
-                        설명
-                    </div>
-                    <div className="w-5/6">
-                        호놀롤롤로
-                    </div>
-                </div>
-            </div>
-
-            <div className="flex flex-wrap m-7">
-                <div className="w-1/4">
-                </div>
-
-                {/*글 제목 */}
+                {/*지역 */}
                 <div className="bg-orange-500 w-1/2 flex flex-wrap">
                     <div className="w-1/6 font-extrabold">
                         지역
                     </div>
                     <div className="w-5/6">
-                        호놀롤롤로
+                        {info.location}
+                    </div>
+                </div>
+            </div>
+
+            <div className="flex flex-wrap m-7">
+                <div className="w-1/4">
+                </div>
+
+                {/*글 제목 */}
+                <div className="bg-orange-500 w-1/2 flex flex-wrap">
+                    <div className="w-1/6 font-extrabold">
+                        type
+                    </div>
+                    <div className="w-5/6">
+                        {info.type}
                     </div>
                 </div>
             </div>

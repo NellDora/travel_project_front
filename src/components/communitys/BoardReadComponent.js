@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getBoard } from "../../api/boardApi";
+import BoardReplyComponent from "./BoardReplyComponent";
 
 
 const initState ={
@@ -47,6 +48,9 @@ function BoardReadComponent({bno}){
                     <div>
 
                     </div>
+
+                    
+
                 </div>
                 <div className="w-1/6">
 
