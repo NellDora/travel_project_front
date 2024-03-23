@@ -15,6 +15,8 @@ const initState ={
 
 const InfoDetailComponent = ({vno}) => {
 
+    
+
     const [info, setInfo] = useState(initState)
 
 

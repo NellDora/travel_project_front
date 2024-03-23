@@ -23,5 +23,6 @@ export const postInfo = async (infoObj) =>{
 
 export const getInfo = async(vno) =>{
     const res = await axios.get(`${host}/${vno}`)
+    console.log("getInfo 호출")
     return res.data
 }

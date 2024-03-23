@@ -73,7 +73,7 @@ const InfoListComponent = () => {
                     <div className="w-6/12">
                         {serverData.dtoList.map(info =>
                             <div className="box-border border-t-2 m-10 w-11/12 shadow-lg shadow-slate-400 border-gray-300 border-2"
-                            onClick={() => moveToInfoRead()}>
+                            onClick={() => moveToInfoRead(info.vno)}>
                                     <div className="text-center">
                                     <span className="font-extrabold size-5">지역명</span>
                                 </div>

@@ -27,9 +27,9 @@ const useCustomMove = () => {
         })
     }
 
-    const moveToInfoRead = () => {
+    const moveToInfoRead = (vno) => {
         navigate({
-            pathname:'../travel/read'
+            pathname:`../travel/read/${vno}`
         })
     }
 
