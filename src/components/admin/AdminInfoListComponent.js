@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import useCustomMove from "../hook/useCustomMove"
-import InfoComponent from "./InfoComponent";
 import { getInfoList } from "../../api/infoApi";
 import PageComponent from "../common/PageComponent";
+import AdminInfoComponent from "./AdminInfoComponent";
+
 
 const initState ={
     dtoList:[],
@@ -21,7 +22,7 @@ const initState ={
 
 
 
-const InfoListComponent = () => {
+const AdminInfoListComponent = () => {
 
     const{page,size, refresh, moveToInfoList, moveToInfoRead} = useCustomMove()
     
@@ -100,7 +101,7 @@ const InfoListComponent = () => {
                                     <span className="font-extrabold size-5">지역명</span>
                                 </div>
                                 <div className="flex flex-wrap justify-center">
-                                    <InfoComponent title={info.title}  content={info.content} register={"2024-02-25"} stump={"255"}
+                                    <AdminInfoComponent title={info.title}  content={info.content} register={"2024-02-25"} stump={"255"}
                                     image={info.uploadFileNames[0]}/>
                                 </div>
                             </div>
@@ -117,4 +118,4 @@ const InfoListComponent = () => {
     
 }
 
-export default InfoListComponent
+export default AdminInfoListComponent

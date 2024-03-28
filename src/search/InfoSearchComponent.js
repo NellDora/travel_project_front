@@ -26,8 +26,9 @@ const InfoSearchComponent = () => {
                 <option>ㅎㅎ</option>
                 <option>ㅁㅁ</option>
             </select>
+
         </div>
-    )
+    );
 }
 
 export default InfoSearchComponent

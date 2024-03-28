@@ -6,8 +6,8 @@ import { API_SERVER_HOST } from "./boardApi"
 const host = `${API_SERVER_HOST}/vacationlands`
 
 export const getInfoList = async(pageParam) =>{
-    const {page,size} = pageParam
-    const res = await axios.get(`${host}/`, {params:{page,size}})
+    const {page,size,searchTitle} = pageParam
+    const res = await axios.get(`${host}/`, {params:{page,size,searchTitle}})
     console.log("getInfoList 호출")
     return res.data
 }
