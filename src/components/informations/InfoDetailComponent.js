@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getInfo } from "../../api/infoApi";
+import ImageSlider from "../etc/ImageSlider";
 
 
 const initState ={
@@ -10,8 +11,13 @@ const initState ={
     writer:"",
     regDate:"",
     location:"",
-    type:""
+    type:"",
+    uploadFileNames:[]
 }
+
+
+
+
 
 const InfoDetailComponent = ({vno}) => {
 
@@ -34,9 +40,12 @@ const InfoDetailComponent = ({vno}) => {
                     <span></span>
                 </div>
                 <div className="border-gray-600 w-1/3 h-auto bg-slate-400 border-solid">
-                    테스트<br/><br/><br/><br/><br/><br/>
+                    <div>
+                        <ImageSlider images={info.uploadFileNames}/>
+                    </div>
+                    
                 </div>
-                <div>네모</div>
+                <div>네모바지 스펀지밥</div>
 
             </div>
 
