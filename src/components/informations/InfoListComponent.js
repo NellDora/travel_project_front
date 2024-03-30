@@ -3,6 +3,8 @@ import useCustomMove from "../hook/useCustomMove"
 import InfoComponent from "./InfoComponent";
 import { getInfoList } from "../../api/infoApi";
 import PageComponent from "../common/PageComponent";
+import { getSearchInfoList } from "../../api/infoApi";
+
 
 const initState ={
     dtoList:[],
@@ -25,9 +27,14 @@ const InfoListComponent = () => {
 
     const{page,size, refresh, moveToInfoList, moveToInfoRead} = useCustomMove()
     
+    
     const[serverData, setServerData] = useState(initState)
 
     const [searchTitle, setSearchTitle] = useState(""); 
+
+    const [theme , setTheme] = useState("");
+
+    const [location, setLoacation] = useState("");
     
     useEffect(()=>{
         getInfoList({page,size,searchTitle}).then(data=>{
@@ -39,8 +46,13 @@ const InfoListComponent = () => {
     
     const handleSearch = () => {
         setSearchTitle(document.querySelector("#infoTitle").value);
+        setTheme(document.querySelector("#infoTheme").value);
+        setLoacation(document.querySelector("#infoLocation").value);
 
-        getInfoList({ page, size, searchTitle }).then(data => {
+        //해결 해야할 문제 1. 버튼 클릭했을 떄에 정상적으로 동작을 하지만 밑에 페이지 같은 경우는 2번 클릭을 해야 로딩을 함
+        // 해결 필요
+
+        getSearchInfoList({ page, size, searchTitle,theme, location }).then(data => {
             console.log(data);
             setServerData(data);
         });
@@ -70,11 +82,22 @@ const InfoListComponent = () => {
                                 <div className="w-1/2">
                                     <span>theme</span>
                                 </div>
-                                <select className=" w-1/2 rounded-2xl">
-                                    <option>ALL</option>
-                                    <option>view</option>
-                                    <option>food</option>
-                                    <option>history</option>
+                                <select className=" w-1/2 rounded-2xl" id="infoTheme">
+                                    <option></option>
+                                    <option value="view">view</option>
+                                    <option value="food">food</option>
+                                    <option value="history">history</option>
+                                </select>
+                            </div>
+                            <div className="m-10 flex">
+                                <div className="w-1/2">
+                                    <span>stand</span>
+                                </div>
+                                <select className=" w-1/2 rounded-2xl" id="infoLocation">
+                                    <option></option>
+                                    <option value="busan">부산</option>
+                                    <option value="seoul">서울</option>
+                                    <option value="daejoen">대전</option>
                                 </select>
                             </div>
                             <div className="m-10 flex">

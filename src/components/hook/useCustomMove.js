@@ -8,6 +8,26 @@ const getNum = (param, defaultValue) => {
     return parseInt(param)
 }
 
+const getTitle =(param, defaultValue) => {
+    if(!param){
+        return defaultValue
+    }
+    return param
+}
+
+const getTheme =(param, defaultValue) => {
+    if(!param){
+        return defaultValue
+    }
+    return param
+}
+
+const getLocation =(param, defaultValue) => {
+    if(!param){
+        return defaultValue
+    }
+    return param
+}
 
 const useCustomMove = () => {
     const navigate = useNavigate()
@@ -18,6 +38,10 @@ const useCustomMove = () => {
 
     const page = getNum(queryParams.get('page'), 1)
     const size = getNum(queryParams.get('size'),10)
+    const title = getTitle(queryParams.get('searchTitle'), null)
+    const theme = getTheme(queryParams.get('theme',null))
+    const location = getLocation(queryParams.get('location',null))
+
 
     const queryDefault = createSearchParams({page,size}).toString()
 
@@ -27,8 +51,11 @@ const useCustomMove = () => {
         if(pageParam){
             const pageNum = getNum(pageParam.page,1)
             const sizeNum = getNum(pageParam.size,10)
+            const titleString = getTitle(pageParam.getTitle,null)
+            const themeString = getTheme(pageParam.getTheme,null)
+            const locationString = getLocation(pageParam.getLocation,null)
 
-            queryStr = createSearchParams({page:pageNum, size:sizeNum}).toString()
+            queryStr = createSearchParams({page:pageNum, size:sizeNum, title:titleString, theme:themeString, location:locationString}).toString()
         }else{
             queryStr = queryDefault
         }
@@ -77,7 +104,7 @@ const useCustomMove = () => {
     }
 
     return {
-        moveToInfoList, moveToInfoRead, moveToBoardRead, moveToBoardWrite, moveToBoardList, page, size, refresh
+        moveToInfoList, moveToInfoRead, moveToBoardRead, moveToBoardWrite, moveToBoardList, page, size, refresh, title, location, theme
     }
 }
 
