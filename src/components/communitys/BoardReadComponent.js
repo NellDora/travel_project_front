@@ -21,8 +21,11 @@ function BoardReadComponent({bno}){
             setBoard(data)
         })
     },[bno]);
+    
+    const datetime = new Date(board.regDate);
+    const date = datetime.toISOString().split('T')[0];
+    const time = datetime.toISOString().split('T')[1].split('.')[0];
 
-    const datetime = board.regDate.split(" ")
 
     return(
         <div className="">
@@ -36,8 +39,8 @@ function BoardReadComponent({bno}){
                         <span>{board.writer}</span>
                     </div>
                     <div className="m-4 text-lg">
-                        <p>{board.regDate}</p>
-                        <span>{datetime[0]} - {datetime[1]}</span>
+                        <p>{date}</p>
+                        <span>{time}</span> 
                     </div>
                     <div className="m-4 text-3xl font-extrabold">
                         {board.title}

@@ -1,5 +1,5 @@
-import { Suspense } from "react";
-import MainPage from "../pages/MainPage";
+import { Suspense, lazy } from "react";
+import MainPage from "../pages/home/MainPage";
 import infoRouter from "./infoRouter";
 import InfoPage from "../pages/informations/InfoPage";
 import communityRouter from "./communityRouter";

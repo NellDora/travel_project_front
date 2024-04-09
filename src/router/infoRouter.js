@@ -1,7 +1,7 @@
-import { Suspense } from "react"
-import InfoListPage from "../pages/informations/InfoListPage";
-import InfoDetailComponent from "../components/informations/InfoDetailComponent";
-import InfoReadPage from "../pages/informations/InfoReadPage";
+import {lazy, Suspense } from "react"
+const InfoListPage = lazy(()=> import ("../pages/informations/InfoListPage"));
+const InfoDetailComponent  = lazy(()=> import("../components/informations/InfoDetailComponent"));
+const InfoReadPage = lazy(()=> import("../pages/informations/InfoReadPage"));
 
 const infoRouter = () =>{
 

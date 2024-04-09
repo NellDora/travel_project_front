@@ -3,6 +3,8 @@ import AdminPage from "../pages/admin/AdminPage"
 import AdminAddInfoPage from "../pages/admin/AdminAddInfoPage"
 import AdminInfoListPage from "../pages/admin/AdminInfoListPage"
 import AdminInfoReadPage from "../pages/admin/AdminInfoReadPage"
+import AdminMainPage from "../pages/admin/AdminMainPage"
+import { Navigate } from "react-router-dom"
 
 
 const adminRouter = () => {
@@ -10,22 +12,23 @@ const adminRouter = () => {
         {
             
             path:"",
-            element:<Suspense></Suspense>
+            element:<Navigate replace={true} to={'home'}/>
+            
         },
         {
-            path:"/admin",
-            element:<Suspense><AdminPage/></Suspense>
+            path:"home",
+            element:<Suspense><AdminMainPage/></Suspense>
         },
         {
-            path:"/admin/travel",
+            path:"travel",
             element:<Suspense><AdminInfoListPage/></Suspense>
         },
         {
-            path:'/admin/travel/read/:vno',
+            path:'travel/read/:vno',
             element:<Suspense><AdminInfoReadPage/></Suspense>
         },
         {
-            path:"/admin/travel/register",
+            path:"travel/register",
             element:<Suspense><AdminAddInfoPage/></Suspense>
         }
     ]

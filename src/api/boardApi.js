@@ -39,4 +39,5 @@ export const getBoardReply = async(bno) =>{
 
 export const postBoardReply = async(boardReplyObj) =>{
     const res = await axios.post(`${prefix}/${boardReplyObj.bno}/replys`, boardReplyObj)
+    return res.data
 }

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import InfoDetailComponent from "../../components/informations/InfoDetailComponent";
-
+import {lazy} from "react"
+const InfoDetailComponent  = lazy(()=> import("../../components/informations/InfoDetailComponent"));
 
 
 function InfoReadPage(){
