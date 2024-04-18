@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 const BasicMenu = () => {
+
+    const loginState = '';
+    console.log("loginState......: "+ loginState);
+
     return(
         <div>
             <nav className='flex bg-blue-200 fixed top-0 w-full'>
@@ -18,12 +23,18 @@ const BasicMenu = () => {
                         <li className="ml-3 mr-3">
                             <Link to ={'/travel'}>Travel</Link>
                         </li>
+
+                        {loginState.id ?
+                        <>
                         <li className="ml-3 mr-3">
                             <Link to ={'/community'}>Community</Link>
                         </li>
                         <li className="ml-3 mr-3">
                             <Link to ={'/gallery'}>Gallery</Link>
                         </li>
+                        </>
+                        :<></>
+                        }
                     </ul>
 
                 </div>
