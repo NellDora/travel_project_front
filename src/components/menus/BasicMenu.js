@@ -5,6 +5,10 @@ import { useSelector } from "react-redux";
 const BasicMenu = () => {
 
     const loginState = useSelector(state => state.loginSlice)
+    
+    console.log("loginState......")
+    console.log(loginState)
+    
     return(
         <div>
             <nav className='flex bg-blue-200 fixed top-0 w-full'>
@@ -38,9 +42,16 @@ const BasicMenu = () => {
                 </div>
                 <div className="w-1/12 bg-blue-200">
                     <div className="p-4">
-                        <span className="font-extrabold">
-                            LOGIN
-                        </span>
+                        {! loginState.id ?
+                            <div className="text-white text-sm m-1 rounded">
+                                <Link to={'/memberlogin'}>Login</Link>
+                            </div>
+                            :
+
+                            <div className="text-white text-sm m-1 rounded">
+                                <Link to={'/member/logout'}>Logout</Link>
+                            </div>
+                            }
                     </div>
                 </div>
                 

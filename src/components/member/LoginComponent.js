@@ -35,7 +35,7 @@ const LoginComponent = () =>{
       <div className="relative mb-4 flex w-full flex-wrap items-stretch">
         <div className="w-full p-3 text-left font-bold">Email</div>
         <input className="w-full p-3 rounded-r border border-solid border-neutral-500 shadow-md" 
-        name="email"
+        name="id"
         type={'text'} 
         value={loginParam.email}
         onChange={handleChange}
