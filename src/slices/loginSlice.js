@@ -1,8 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { loginPost } from "../api/memberApi";
 
 const initState={
     id:''
 }
+
+export const loginPostAsync= createAsyncThunk('loginPostasync', (param) =>loginPost(param));
 
 const loginSlice = createSlice({
     name:'loginSlice',
@@ -21,6 +24,21 @@ const loginSlice = createSlice({
 
             return {...initState}
         }
+    },
+    extraReducers:(builder) => {
+        builder.addCase(loginPostAsync.fulfilled,(state,action) =>{
+            console.log("fullfilled")
+
+            const payload = action.payload
+            console.log("extraReducer return 값 : "+ payload)
+            return payload
+        })
+            .addCase(loginPostAsync.pending,(state,action) =>{
+                console.log("pending")
+            })
+            .addCase(loginPostAsync.rejected,(state,action) =>{
+                console.log("rejected")
+            })
     }
 })
 

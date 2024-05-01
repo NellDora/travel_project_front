@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "../../slices/loginSlice";
+import { login, loginPostAsync } from "../../slices/loginSlice";
+import { useNavigate } from "react-router-dom";
+import useCustomLogin from "../hook/useCustomLogin";
 
 
 const initState = {
@@ -12,7 +14,7 @@ const LoginComponent = () =>{
     
     const [loginParam, setLoginParam] = useState({...initState})
     
-    const dispatch = useDispatch()
+    const {doLogin, moveToPath} = useCustomLogin()
 
     const handleChange = (e) => {
         loginParam[e.target.name] = e.target.value
@@ -22,7 +24,15 @@ const LoginComponent = () =>{
 
     const handleClickLogin = (e) => {
 
-      dispatch(login(loginParam))
+
+
+      doLogin(loginParam).then(data =>{
+        if(data.error){
+          alert("ID와 Password를 확인하세요")
+        }else{
+          moveToPath("/");
+        }
+      })
 
     }
 
@@ -37,7 +47,7 @@ const LoginComponent = () =>{
         <input className="w-full p-3 rounded-r border border-solid border-neutral-500 shadow-md" 
         name="id"
         type={'text'} 
-        value={loginParam.email}
+        value={loginParam.id}
         onChange={handleChange}
         >
         </input>
