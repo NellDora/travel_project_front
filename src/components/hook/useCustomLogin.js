@@ -6,19 +6,14 @@ import { loginPostAsync, logout } from "../../slices/loginSlice"
 const useCustomLogin = () => {
     
     const navigate = useNavigate()
-
     const dispatch = useDispatch()
-
     const loginState = useSelector(state => state.loginSlice)
-
     const isLogin = loginState.id ? true : false
-
     const doLogin = async (loginParam) => {
         const action = await dispatch(loginPostAsync(loginParam))
         return action.payload
     
     }
-
     const doLogout = () =>{
         dispatch(logout())
     }
@@ -33,8 +28,6 @@ const useCustomLogin = () => {
 
     const moveToLoginReturn = () => {
         return <Navigate replace to="/member/login"/>
-        
-
     }
 
     return {loginState, isLogin, doLogin , doLogout, moveToPath, moveToLoginReturn}

@@ -1,8 +1,11 @@
 
+
 import LogoutComponent from "../../components/member/LogoutComponent";
 import BasicMenu from "../../components/menus/BasicMenu"
 
 const LogoutPage = () => {
+
+
     return(
         <div className="fixed top-0 left-0 z-[1005] flex flex-col h-full w-full">
 

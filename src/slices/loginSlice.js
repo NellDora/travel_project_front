@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { loginPost } from "../api/memberApi";
+import { setCookie } from "../util/cookieUtil";
 
 const initState={
     id:''
@@ -31,6 +32,11 @@ const loginSlice = createSlice({
 
             const payload = action.payload
             console.log("extraReducer return 값 : "+ payload)
+
+            if(!payload.error){
+                setCookie('member', JSON.stringify(payload))
+            }
+
             return payload
         })
             .addCase(loginPostAsync.pending,(state,action) =>{

@@ -1,8 +1,16 @@
 import { Outlet } from "react-router-dom";
 import BasicMenu from "../../components/menus/BasicMenu";
 import BasicContent from "../../components/contents/BasicContent";
+import useCustomLogin from "../../components/hook/useCustomLogin";
 
 function InfoPage(){
+
+    const {isLogin, moveToLoginReturn} = useCustomLogin();
+
+    if(!isLogin){
+        return moveToLoginReturn();
+    }
+
     return(
         <div>
             <BasicMenu/>
